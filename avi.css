@@ -1,0 +1,88 @@
+/* 
+  Project: CSS Glowing Button
+  Created: Sunday, 06 March 2022
+  Author: Jamshid Elmi 
+  Tutorial: https://youtu.be/b_8fHNIHFk4
+*/
+/* html, body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #161616;
+    overflow: hidden;
+
+  } */
+  
+  /* button */
+  .buttons{
+    text-align: left;
+    justify-content: space-around;
+    margin-left: 146px;
+  }
+  .buttons1{
+    /* margin: 100px; */
+    padding: 15px 40px;
+    border: solid;
+    outline: none;
+    color: #034f37;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+    border-color: #034f37;
+    
+  }
+  .buttons1::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #b6d8c0;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+    border-color: #034f37;
+  }
+  /* glow */
+  .buttons1::before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #FF0000, #FF7300, #FFFB00, #48FF00,
+      #00FFD5, #002BFF, #FF00C8, #FF0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height:  calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 0;
+  }
+  
+  @keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+  }
+  
+  /* hover */
+  .buttons1:hover::before {
+    opacity: 1;
+  }
+  
+  .buttons1:active:after {
+    background: transparent;
+  }
+  
+  .buttons1:active {
+    color: #000;
+    font-weight: bold;
+  }
+  
